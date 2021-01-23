@@ -33,3 +33,7 @@ void Graph::printGraph()
     }
     return;
 }
+
+int** Graph::getMatris(){
+    return this->matris;
+}

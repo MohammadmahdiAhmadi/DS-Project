@@ -4,14 +4,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#include "Castle.h"
+
 class Graph
 {
+    friend class Castle;
     public:
         Graph(int v);
         virtual ~Graph();
 
         void addEdge(int u, int v, int dis);
         void printGraph();
+        int** getMatris();
 
     protected:
 
