@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1611438514 source:/media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/main.cpp
+1611528571 source:/media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/main.cpp
 	<iostream>
 	"Graph.h"
 	"Castle.h"
+	"Avl.h"
 
 1611438124 source:/media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/src/Graph.cpp
 	"Graph.h"
@@ -11,9 +12,15 @@
 	<bits/stdc++.h>
 	"Castle.h"
 
-1611438514 /media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/include/Castle.h
+1611500835 /media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/include/Castle.h
 	"Graph.h"
 
 1611438611 source:/media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/src/Castle.cpp
 	"Castle.h"
+
+1611528731 /media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/include/Avl.h
+	<bits/stdc++.h>
+
+1611528372 source:/media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/src/Avl.cpp
+	"Avl.h"
 

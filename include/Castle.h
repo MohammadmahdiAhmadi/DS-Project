@@ -19,6 +19,7 @@ class Castle
         int id;
         int army;
 
+
 };
 
 

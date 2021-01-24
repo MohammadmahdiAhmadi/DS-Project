@@ -34,8 +34,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Avl.h" />
+		<Unit filename="include/Castle.h" />
 		<Unit filename="include/Graph.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Avl.cpp" />
+		<Unit filename="src/Castle.cpp" />
 		<Unit filename="src/Graph.cpp" />
 		<Extensions>
 			<code_completion />
