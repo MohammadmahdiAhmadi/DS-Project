@@ -1,9 +1,9 @@
 #include "Castle.h"
 
-Castle::Castle(int id)
+Castle::Castle(int id, int armySize)
 {
     this->id = id;
-    this->army = 0;
+    this->armySize = armySize;
     //ctor
 }
 
@@ -13,10 +13,6 @@ Castle::~Castle()
 }
 
 
-void Castle::setArmy(int n){
-    this->army = n;
-}
-
 void Castle::showNeighbors(int** matris, int e){
     cout << "Neighbors of Castle " << this->id << ": " << endl;
     for(int i=0; i<e; i++){
@@ -24,4 +20,12 @@ void Castle::showNeighbors(int** matris, int e){
             cout << "Caslte " << i << "(" << matris[id][i] << " km)" << endl;
         }
     }
+}
+
+void Castle::setArmyTree(){
+    for(int i=0; i<armySize; i++){
+        this->armyTree.add(rand() % 80 + 20);//20-100 Power
+    }
+    armyTree.pre();
+    cout << endl;
 }

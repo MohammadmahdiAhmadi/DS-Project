@@ -8,7 +8,7 @@ using namespace std;
 #define OC 24 //OutputCapacity
 #define SA 2  //SpeedOfArmy
 int main()
-{/*
+{
     //Number of Edge
     int e;
     cin >> e;
@@ -28,25 +28,11 @@ int main()
     //Now we should get Castle Details from user
     vector<Castle> C;
     for(int i=0; i<e; i++){
-        C.push_back(Castle(i));
-        C[i].setArmy(100*i+50);
+        C.push_back(Castle(i, 100/e));//max=220
+        C[i].setArmyTree();
     }
-    C[0].showNeighbors(g.getMatris(), e);*/
+    C[0].showNeighbors(g.getMatris(), e);
 
-    Avl tree;
-    tree.add(9);
-    tree.add(5);
-    tree.add(10);
-    tree.add(0);
-    tree.add(6);
-    tree.add(11);
-    tree.add(-1);
-    tree.add(1);
-    tree.add(2);
-
-    tree.del(10);
-
-    tree.pre();
 
     return 0;
 }

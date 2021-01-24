@@ -1,23 +1,26 @@
 #ifndef CASTLE_H
 #define CASTLE_H
 
-#include "Graph.h"
+#include <iostream>
+using namespace std;
 
+#include "Graph.h"
+#include "Avl.h"
 
 class Castle
 {
     public:
-        Castle(int id);
+        Castle(int id, int armySize);
         virtual ~Castle();
 
-        void setArmy(int n);
         void showNeighbors(int** matris, int e);
+        void setArmyTree();
 
-    protected:
 
     private:
         int id;
-        int army;
+        int armySize;
+        Avl armyTree;
 
 
 };
