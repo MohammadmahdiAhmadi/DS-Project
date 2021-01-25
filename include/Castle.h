@@ -15,6 +15,8 @@ class Castle
 
         void showNeighbors(int** matris, int e);
         void setArmyTree();
+        void alvToQueue();
+        void avlPre();
 
 
     private:

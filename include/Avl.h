@@ -34,6 +34,7 @@ class Avl
         void add(int key);
         void del(int key);
         void pre();
+        void reverseLevelOrder();
 
 
     private:

@@ -4,6 +4,9 @@ using namespace std;
 #include "Graph.h"
 #include "Castle.h"
 #include "Avl.h"
+#include "vectorClass.h"
+#include "StackLL.h"
+#include "QueueLL.h"
 
 #define OC 24 //OutputCapacity
 #define SA 2  //SpeedOfArmy
@@ -32,7 +35,9 @@ int main()
         C[i].setArmyTree();
     }
     C[0].showNeighbors(g.getMatris(), e);
-
+    C[0].alvToQueue();
+    cout << endl;
+    C[0].avlPre();
 
     return 0;
 }

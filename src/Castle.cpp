@@ -29,3 +29,12 @@ void Castle::setArmyTree(){
     armyTree.pre();
     cout << endl;
 }
+
+void Castle::alvToQueue(){
+    this->armyTree.reverseLevelOrder();
+    return;
+}
+
+void Castle::avlPre(){
+    this->armyTree.pre();
+}
