@@ -13,10 +13,12 @@ class Castle
         Castle(int id, int armySize);
         virtual ~Castle();
 
-        void showNeighbors(int** matris, int e);
+        void showNeighbors(int** matris, int e, int* army);
         void setArmyTree();
         void alvToQueue();
         void avlPre();
+        int getId();
+        int getArmySize();
 
 
     private:

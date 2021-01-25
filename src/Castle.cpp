@@ -13,11 +13,11 @@ Castle::~Castle()
 }
 
 
-void Castle::showNeighbors(int** matris, int e){
+void Castle::showNeighbors(int** matris, int e, int* army){
     cout << "Neighbors of Castle " << this->id << ": " << endl;
     for(int i=0; i<e; i++){
         if(matris[id][i] != 0){
-            cout << "Caslte " << i << "(" << matris[id][i] << " km)" << endl;
+            cout << "Caslte " << i << "(" << matris[id][i] << " km, " << army[i] << "-man army)" << endl;
         }
     }
 }
@@ -38,3 +38,15 @@ void Castle::alvToQueue(){
 void Castle::avlPre(){
     this->armyTree.pre();
 }
+
+int Castle::getId(){
+    return id;
+}
+
+int Castle::getArmySize(){
+    return armySize;
+}
+
+
+
+
