@@ -8,6 +8,7 @@ StartGame::StartGame()
     setGraph();
     setCastles();
     choiceCastle();
+    showTargetCastles();
 
     //ctor
 }
@@ -56,7 +57,7 @@ void StartGame::choiceCastle(){
     cin >> CastleId;
 
     if(CastleId != -1){
-        cout << "Your castle is: " << CastleId;
+        cout << "Your castle is: " << CastleId << endl;
         return;
     }
 
@@ -82,8 +83,43 @@ void StartGame::choiceCastle(){
 
     cout << "Now choice your castle: ";
     cin >> CastleId;
-    cout << "Your castle is: " << CastleId;
+    cout << "Your castle is: " << CastleId << endl;
 
 }
 
+void StartGame::showTargetCastles(){
 
+    int* listOfNeighborsArmys = new int[E];
+    for(int i=0; i<E; i++){
+        if(G->getMatris()[CastleId][i] != 0){
+            listOfNeighborsArmys[i] = C[i]->getArmySize();
+        }
+        else{
+            listOfNeighborsArmys[i] = 0;
+        }
+    }
+
+
+
+    int* distributedArmys;
+    distributedArmys = C[CastleId]->distributingSoldiers(listOfNeighborsArmys, E);
+
+    listOfNeighborsArmys = NULL;
+    delete listOfNeighborsArmys;
+
+    cout << "List of all castles that you can attack them:\n\n";
+    for(int i=0; i<E; i++){
+        if(G->getMatris()[CastleId][i] != 0){
+            cout << "Castle id:                  " << i << endl;
+            cout << "Army size:                  " << C[i]->getArmySize() << endl;
+            cout << "Distance:                   " << G->getMatris()[CastleId][i] << " km" << endl;
+            cout << "My distributed army size:   " << distributedArmys[i] << endl;
+            cout << "Win chance(#):              " << (float)distributedArmys[i]/(float)C[i]->getArmySize() << endl;
+            cout << "Soldiers status(#):         " << "Ready to attack" << endl;
+
+            cout << endl;
+        }
+
+
+    }
+}

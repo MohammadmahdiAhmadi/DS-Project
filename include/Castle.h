@@ -19,6 +19,7 @@ class Castle
         void avlPre();
         int getId();
         int getArmySize();
+        int* distributingSoldiers(int* listOfNeighborsArmys, int e);
 
 
     private:
@@ -26,6 +27,8 @@ class Castle
         int armySize;
         Avl armyTree;
 
+        vector<int> conqueredCastles;
+        int conqueredBy;
 
 };
 

@@ -13,7 +13,7 @@ class StartGame
         StartGame();
         virtual ~StartGame();
 
-
+        void showTargetCastles();
 
     private:
         int CastleId;

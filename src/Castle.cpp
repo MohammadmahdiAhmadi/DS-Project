@@ -4,6 +4,8 @@ Castle::Castle(int id, int armySize)
 {
     this->id = id;
     this->armySize = armySize;
+
+    this->conqueredBy = -1;
     //ctor
 }
 
@@ -47,6 +49,43 @@ int Castle::getArmySize(){
     return armySize;
 }
 
+int* Castle::distributingSoldiers(int* listOfNeighborsArmys, int e){
+    int allArmys = 0;
+    for(int i=0; i<e; i++){
+        if(listOfNeighborsArmys[i] != 0){
+            allArmys += listOfNeighborsArmys[i];
+        }
+    }
 
+    double Ratio = (float)this->getArmySize()/(float)allArmys;
+    int allArmysNew = 0;
+
+    for(int i=0; i<e; i++){
+        if(listOfNeighborsArmys[i] != 0){
+            float t = (float)listOfNeighborsArmys[i] * Ratio;
+            listOfNeighborsArmys[i] = (int)t;
+
+            allArmysNew += listOfNeighborsArmys[i];
+        }
+    }
+
+
+    if(this->getArmySize() - allArmysNew >= 1){
+        int flag = 0;
+        int temp = 1000;
+
+        //find smallest castle
+        for(int i=0; i<e; i++){
+            if(listOfNeighborsArmys[i] != 0 && listOfNeighborsArmys[i] < temp){
+                temp = listOfNeighborsArmys[i];
+                flag = i;
+            }
+        }
+
+        listOfNeighborsArmys[flag] += this->getArmySize() - allArmysNew;
+    }
+
+    return listOfNeighborsArmys;
+}
 
 
