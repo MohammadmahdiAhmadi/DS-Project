@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1611773363 source:/media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/main.cpp
+1611783042 source:/media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/main.cpp
 	<iostream>
 	"StartGame.h"
 
@@ -54,7 +54,7 @@
 	"War.h"
 	"StackLL.h"
 
-1611773339 /media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/include/War.h
+1611783690 /media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/include/War.h
 	<iostream>
 	"Graph.h"
 	"Castle.h"

@@ -19,6 +19,7 @@ War::~War()
 
 void War::queuePreparation(){
     StackLL<int> s = C[CastleId]->alvToQueue();
+    StackLL<int> st = C[CastleId]->alvToQueue();
 
     int* queuesSize = C[CastleId]->getDistributingSoldiersList();
 
@@ -33,7 +34,28 @@ void War::queuePreparation(){
         }
     }
 
-    return;
+
+
+    cout << "Queus are ready for attack: \n";
+
+    for(int i=0; i<E; i++){
+
+    if(G->getMatris()[CastleId][i] != 0){
+        cout << "Queue for castle " << i << ":  ";
+        for(int j=0; j<queuesSize[i]; j++){
+            cout << st.top() << " ";
+            st.pop();
+        }
+        cout << endl;
+        }
+    }
+
+
+
+
+
+
+
 }
 
 

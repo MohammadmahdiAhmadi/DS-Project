@@ -23,6 +23,7 @@ class War
         vector<Castle*> C;
 
         vector<queue<int>> Q;
+        int Time;
 
 
         void queuePreparation();
