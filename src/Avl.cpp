@@ -262,9 +262,10 @@ void Avl::pre(){
     return;
 }
 
-void Avl::reverseLevelOrder()
+StackLL<int> Avl::reverseLevelOrder()
 {
-    stack <Node *> S;
+    StackLL <Node *> S;
+    StackLL <int> Helper;
     queue <Node *> Q;
     Q.push(root);
 
@@ -278,6 +279,7 @@ void Avl::reverseLevelOrder()
         root = Q.front();
         Q.pop();
         S.push(root);
+        Helper.push(root->key);
 
         /* Enqueue right child */
         if (root->right)
@@ -289,11 +291,12 @@ void Avl::reverseLevelOrder()
     }
 
     // Now pop all items from stack one by one and print them
-    while (S.empty() == false)
+    while (S.isEmpty() == false)
     {
         root = S.top();
-        cout << root->key << " ";
         S.pop();
     }
+
+    return Helper;
 }
 

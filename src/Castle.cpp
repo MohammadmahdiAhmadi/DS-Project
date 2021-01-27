@@ -32,9 +32,8 @@ void Castle::setArmyTree(){
     cout << endl;
 }
 
-void Castle::alvToQueue(){
-    this->armyTree.reverseLevelOrder();
-    return;
+StackLL<int> Castle::alvToQueue(){
+    return this->armyTree.reverseLevelOrder();
 }
 
 void Castle::avlPre(){
@@ -49,11 +48,15 @@ int Castle::getArmySize(){
     return armySize;
 }
 
-int* Castle::distributingSoldiers(int* listOfNeighborsArmys, int e){
+int* Castle::getDistributingSoldiersList(){
+    return distributingSoldiersList;
+}
+
+void Castle::distributingSoldiers(int* listOfCastlesArmys, int** matris, int e){
     int allArmys = 0;
     for(int i=0; i<e; i++){
-        if(listOfNeighborsArmys[i] != 0){
-            allArmys += listOfNeighborsArmys[i];
+        if(matris[id][i] != 0){
+            allArmys += listOfCastlesArmys[i];
         }
     }
 
@@ -61,11 +64,11 @@ int* Castle::distributingSoldiers(int* listOfNeighborsArmys, int e){
     int allArmysNew = 0;
 
     for(int i=0; i<e; i++){
-        if(listOfNeighborsArmys[i] != 0){
-            float t = (float)listOfNeighborsArmys[i] * Ratio;
-            listOfNeighborsArmys[i] = (int)t;
+        if(matris[id][i] != 0){
+            float t = (float)listOfCastlesArmys[i] * Ratio;
+            listOfCastlesArmys[i] = (int)t;
 
-            allArmysNew += listOfNeighborsArmys[i];
+            allArmysNew += listOfCastlesArmys[i];
         }
     }
 
@@ -76,16 +79,17 @@ int* Castle::distributingSoldiers(int* listOfNeighborsArmys, int e){
 
         //find smallest castle
         for(int i=0; i<e; i++){
-            if(listOfNeighborsArmys[i] != 0 && listOfNeighborsArmys[i] < temp){
-                temp = listOfNeighborsArmys[i];
+            if(matris[id][i] != 0 && listOfCastlesArmys[i] < temp){
+                temp = listOfCastlesArmys[i];
                 flag = i;
             }
         }
 
-        listOfNeighborsArmys[flag] += this->getArmySize() - allArmysNew;
+        listOfCastlesArmys[flag] += this->getArmySize() - allArmysNew;
     }
 
-    return listOfNeighborsArmys;
+    distributingSoldiersList = listOfCastlesArmys;
+    return;
 }
 
 

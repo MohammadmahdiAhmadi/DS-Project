@@ -10,6 +10,17 @@ StartGame::StartGame()
     choiceCastle();
     showTargetCastles();
 
+    cout  << "\nEnter 1, for start the war: ";
+    int f;
+    cin >> f;
+    if(f == 1) {
+        startWars();
+    }
+    else{
+        cout << "Wrong input! Good Luck...";
+    }
+
+
     //ctor
 }
 
@@ -46,6 +57,18 @@ void StartGame::setCastles(){
         C.push_back(temp);//max=220
         C[i]->setArmyTree();
     }
+
+
+
+    for(int i=0; i<E; i++){
+        int* listOfCastlesArmys = new int[E];
+        //Bayad az aval set beshe chon pointere
+        for(int i=0; i<E; i++){
+            listOfCastlesArmys[i] = C[i]->getArmySize();
+        }
+        C[i]->distributingSoldiers(listOfCastlesArmys, G->getMatris(), E);
+    }
+
 }
 
 void StartGame::choiceCastle(){
@@ -89,23 +112,9 @@ void StartGame::choiceCastle(){
 
 void StartGame::showTargetCastles(){
 
-    int* listOfNeighborsArmys = new int[E];
-    for(int i=0; i<E; i++){
-        if(G->getMatris()[CastleId][i] != 0){
-            listOfNeighborsArmys[i] = C[i]->getArmySize();
-        }
-        else{
-            listOfNeighborsArmys[i] = 0;
-        }
-    }
-
-
-
     int* distributedArmys;
-    distributedArmys = C[CastleId]->distributingSoldiers(listOfNeighborsArmys, E);
+    distributedArmys = C[CastleId]->getDistributingSoldiersList();
 
-    listOfNeighborsArmys = NULL;
-    delete listOfNeighborsArmys;
 
     cout << "List of all castles that you can attack them:\n\n";
     for(int i=0; i<E; i++){
@@ -122,4 +131,11 @@ void StartGame::showTargetCastles(){
 
 
     }
+}
+
+void StartGame::startWars(){
+    //send address of G, C
+    War war(G, C, E, CastleId);
+
+    return;
 }

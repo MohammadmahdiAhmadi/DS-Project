@@ -6,6 +6,8 @@ using namespace std;
 
 #include "Graph.h"
 #include "Avl.h"
+#include "StackLL.h"
+
 
 class Castle
 {
@@ -15,17 +17,19 @@ class Castle
 
         void showNeighbors(int** matris, int e, int* army);
         void setArmyTree();
-        void alvToQueue();
+        StackLL<int> alvToQueue();
         void avlPre();
         int getId();
         int getArmySize();
-        int* distributingSoldiers(int* listOfNeighborsArmys, int e);
+        int* getDistributingSoldiersList();
+        void distributingSoldiers(int* listOfCastlesArmys, int** matris, int e);
 
 
     private:
         int id;
         int armySize;
         Avl armyTree;
+        int* distributingSoldiersList;
 
         vector<int> conqueredCastles;
         int conqueredBy;

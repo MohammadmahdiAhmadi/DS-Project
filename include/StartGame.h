@@ -6,6 +6,9 @@ using namespace std;
 
 #include "Graph.h"
 #include "Castle.h"
+#include "War.h"
+#include "StackLL.h"
+
 
 class StartGame
 {
@@ -14,6 +17,7 @@ class StartGame
         virtual ~StartGame();
 
         void showTargetCastles();
+        void startWars();
 
     private:
         int CastleId;

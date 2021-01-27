@@ -40,6 +40,7 @@
 		<Unit filename="include/QueueLL.h" />
 		<Unit filename="include/StackLL.h" />
 		<Unit filename="include/StartGame.h" />
+		<Unit filename="include/War.h" />
 		<Unit filename="include/vectorClass.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Avl.cpp" />
@@ -48,6 +49,7 @@
 		<Unit filename="src/QueueLL.cpp" />
 		<Unit filename="src/StackLL.cpp" />
 		<Unit filename="src/StartGame.cpp" />
+		<Unit filename="src/War.cpp" />
 		<Unit filename="src/vectorClass.cpp" />
 		<Extensions>
 			<code_completion />

@@ -4,6 +4,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#include "StackLL.h"
+
 class Node{
 
 friend class Avl;
@@ -34,7 +36,7 @@ class Avl
         void add(int key);
         void del(int key);
         void pre();
-        void reverseLevelOrder();
+        StackLL<int> reverseLevelOrder();
 
 
     private:
