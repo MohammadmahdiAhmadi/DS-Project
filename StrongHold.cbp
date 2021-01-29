@@ -34,6 +34,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Armys.h" />
 		<Unit filename="include/Avl.h" />
 		<Unit filename="include/Castle.h" />
 		<Unit filename="include/Graph.h" />
@@ -43,6 +44,7 @@
 		<Unit filename="include/War.h" />
 		<Unit filename="include/vectorClass.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Armys.cpp" />
 		<Unit filename="src/Avl.cpp" />
 		<Unit filename="src/Castle.cpp" />
 		<Unit filename="src/Graph.cpp" />

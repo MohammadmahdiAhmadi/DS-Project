@@ -6,8 +6,10 @@ War::War(Graph* g, vector<Castle*> c, int e, int castleId)
     this->C = c;
     this->E = e;
     this->CastleId = castleId;
+    Time = 0;
 
     queuePreparation();
+    checkTime();
 
     //ctor
 }
@@ -50,10 +52,48 @@ void War::queuePreparation(){
         }
     }
 
+}
+
+void War::checkTime(){
+    int* distances = new int[E];
+    for(int i=0; i<E; i++)
+        distances[i] = G->getMatris()[CastleId][i];
+
+    int check = 1;
+    while(check){
+        cout << "Enter 1 to go to the next step: ";
+        cin >> check;
+        if(check != 1)
+            break;
+
+        for(int i=0; i<E; i++){
+            if(G->getMatris()[CastleId][i] != 0){//just neighbors
+                //if(distances[i] > 0){//for check distance
+                //    distances[i] - SA;
+                //}
+                //else{
+                    oneStepAttack(i);
+                //}
+            }
+        }
 
 
 
+        Time ++;
+    }
 
+}
+
+void War::oneStepAttack(int i){
+    //Calculate input capacity
+    int IC = ceil((float)Q[i].size() / (float)C[i]->getArmySize());
+
+    for(int j=0; j<IC; j++){
+        C[i]->attackerArmysIn.push(Q[i].front());
+        Q[i].pop();
+    }
+
+    //Create Soldier class for each soldier and create fibonacci tree
 
 
 }

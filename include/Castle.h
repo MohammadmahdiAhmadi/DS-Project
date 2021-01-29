@@ -24,6 +24,8 @@ class Castle
         int* getDistributingSoldiersList();
         void distributingSoldiers(int* listOfCastlesArmys, int** matris, int e);
 
+        queue<int> attackerArmysIn;
+
 
     private:
         int id;

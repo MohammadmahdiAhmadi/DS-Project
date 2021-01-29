@@ -3,11 +3,15 @@
 
 #include <iostream>
 using namespace std;
+#include <cmath>
+
+#define SA 2  //SpeedOfArmy
 
 #include "Graph.h"
 #include "Castle.h"
 #include "StackLL.h"
 #include "QueueLL.h"
+#include "Soldier.h"
 
 class War
 {
@@ -27,6 +31,8 @@ class War
 
 
         void queuePreparation();
+        void checkTime();
+        void oneStepAttack(int i);
 };
 
 #endif // WAR_H
