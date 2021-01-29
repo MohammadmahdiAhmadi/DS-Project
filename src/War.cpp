@@ -59,6 +59,7 @@ void War::checkTime(){
     for(int i=0; i<E; i++)
         distances[i] = G->getMatris()[CastleId][i];
 
+
     int check = 1;
     while(check){
         cout << "Enter 1 to go to the next step: ";
@@ -68,12 +69,12 @@ void War::checkTime(){
 
         for(int i=0; i<E; i++){
             if(G->getMatris()[CastleId][i] != 0){//just neighbors
-                //if(distances[i] > 0){//for check distance
-                //    distances[i] - SA;
-                //}
-                //else{
+                if(distances[i] > 0){//to check distance
+                    distances[i] -= SA;
+                }
+                else{
                     oneStepAttack(i);
-                //}
+                }
             }
         }
 
