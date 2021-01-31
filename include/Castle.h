@@ -23,6 +23,7 @@ class Castle
         int getArmySize();
         int* getDistributingSoldiersList();
         void distributingSoldiers(int* listOfCastlesArmys, int** matris, int e);
+        vector<Node*> avlIn();
 
         queue<int> attackerArmysIn;
 

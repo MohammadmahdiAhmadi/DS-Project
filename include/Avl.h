@@ -11,15 +11,18 @@ class Node{
 friend class Avl;
 
 private:
-    int key;
+
     Node* left;
     Node* right;
 
 public:
+    int key;
     int height;
+    int CastleId;//EXTRA
 
-    Node(int data = 0){
+    Node(int data = 0, int castleId=-1){
         this->key = data;
+        this->CastleId = castleId;//Extra
         this->left = NULL;
         this->right = NULL;
     }
@@ -33,9 +36,11 @@ class Avl
         Avl();
         virtual ~Avl();
 
-        void add(int key);
-        void del(int key);
+        void add(int key, int castleId=-1);//EXTRA
+        void del(int key, int castleId=-1);//EXTRA
         void pre();
+        void in();
+        vector<Node*> inVector;
         StackLL<int> reverseLevelOrder();
 
 
@@ -43,16 +48,18 @@ class Avl
         Node* root;
 
 
-        Node* newNode(int key);
+        Node* newNode(int key, int castleId);//EXTRA
         Node* rightRotate(Node *y);
         Node* leftRotate(Node *x);
         int getBalance(Node *N);
-        Node* insert(Node* node, int key);
+        Node* insert(Node* node, int key, int castleId);//EXTRA
 
         Node* minValueNode(Node* node);
-        Node* deleteNode(Node* root, int key);
+        Node* deleteNode(Node* root, int key, int castleId=-1);//EXTRA
 
         void preOrder(Node *root);
+        void inOrder(Node *root);
+
 
 };
 

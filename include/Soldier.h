@@ -5,13 +5,12 @@
 class Soldier
 {
     public:
-        Soldier(int power=20, int castleId=-1);
+        Soldier();
         virtual ~Soldier();
 
-    int Power;
-    int CastleId;
+    protected:
 
-
+    private:
 };
 
 #endif // SOLDIER_H

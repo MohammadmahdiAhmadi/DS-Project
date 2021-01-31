@@ -96,7 +96,69 @@ void War::oneStepAttack(int i){
 
     //Create Soldier class for each soldier and create fibonacci tree
 
+    //********************************************************//
 
+    //I had problem in Fibonacci tree Delete() function
+    //so we are currently using the AVL tree
+
+    //********************************************************//
+
+    vector<Node*> temp = C[i]->avlIn();
+
+    for(int j=0; j<temp.size(); j++){//set CastleId
+        temp[j]->CastleId = i;
+    }
+
+    vector<Node*> v = findSuitableSoldier(C[i]->attackerArmysIn, temp);
+    /*
+    for(int j=0; j<v.size(); j++){
+        cout << v[j]->key << " for " << C[i]->attackerArmysIn.front() << ", ";
+        C[i]->attackerArmysIn.pop();
+    }
+    */
+
+    for(int j=0; j<IC; j++){//add attacker soldier to vector (with them castleId)
+        Node* intToNode = new Node(C[i]->attackerArmysIn.front(), CastleId);
+        temp.push_back(intToNode);
+
+        C[i]->attackerArmysIn.pop();
+    }
+
+    //#TODO
+    //sort vector with new nodes
+
+    //add all of vector nodes in avl tree (fibonacci soon)
+
+    //delete extra nodes
+
+    //winer or loser???
+
+    //dead stack, avl again, ...
+
+
+
+}
+
+vector<Node*> War::findSuitableSoldier(queue<int> qu, vector<Node*> temp){
+    vector<Node*> v;
+
+
+    for(int i=0; i<qu.size(); i++){
+        int f = 100;//Or 80. (maximum diffrence)
+        int flag = -1;
+        for(int j=0; j<temp.size(); j++){
+            if(abs(temp[j]->key - qu.front()) < f){
+                //cout << abs(temp[j]->key - qu.front()) << " ";
+                f = abs(temp[j]->key - qu.front());
+                flag = j;
+            }
+        }
+        v.push_back(temp[flag]);
+        qu.push(qu.front());
+        qu.pop();
+    }
+
+    return v;
 }
 
 

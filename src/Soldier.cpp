@@ -1,9 +1,7 @@
 #include "Soldier.h"
 
-Soldier::Soldier(int power, int castleId)
+Soldier::Soldier()
 {
-    this->Power = power;
-    this->CastleId = castleId;
     //ctor
 }
 

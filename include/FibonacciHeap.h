@@ -7,16 +7,21 @@
 #include <malloc.h>
 using namespace std;
 
+#include <stack>
+#include <queue>
+
 // Creating a structure to represent a node in the heap
 struct node {
     node* parent; // Parent pointer
     node* child; // Child pointer
-    node* left; // Pointer to the node on the left
-    node* right; // Pointer to the node on the right
+    node* left = NULL; // Pointer to the node on the left
+    node* right = NULL; // Pointer to the node on the right
     int key; // Value of the node
     int degree; // Degree of the node
     char mark; // Black or white mark of the node
     char c; // Flag for assisting in the Find node function
+
+
 };
 
 class FibonacciHeap
@@ -27,6 +32,8 @@ class FibonacciHeap
         void CFind(int old_val, int val);
         void Deletion(int val);
         void display();
+
+        vector<node*> levelOrder();
 
     private:
         // Creating min pointer as "mini"
@@ -310,4 +317,24 @@ void FibonacciHeap::display()
              << endl;
     }
 }
+
+vector<node*> FibonacciHeap::levelOrder()
+{
+    vector<node*> Helper;
+
+    node* ptr = mini;
+    if (ptr == NULL)
+        return Helper;
+
+    else {
+        do {
+            Helper.push_back(ptr);
+            ptr = ptr->right;
+
+        } while (ptr != mini && ptr->right != NULL);
+    }
+
+    return Helper;
+}
+
 

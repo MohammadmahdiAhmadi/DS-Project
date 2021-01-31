@@ -17,9 +17,9 @@ Avl::~Avl()
 }
 
 
-Node* Avl::newNode(int key)
+Node* Avl::newNode(int key, int castleId)
 {
-    Node* node = new Node(key);
+    Node* node = new Node(key, castleId);
     node->height = 1;
 
     return(node);
@@ -71,16 +71,16 @@ int Avl::getBalance(Node *N)
            height(N->right);
 }
 
-Node* Avl::insert(Node* node, int key)
+Node* Avl::insert(Node* node, int key, int castleId)//EXTRA
 {
     /* 1. Perform the normal BST insertion */
     if (node == NULL)
-        return(newNode(key));
+        return(newNode(key, castleId));
 
     if (key < node->key)
-        node->left = insert(node->left, key);
+        node->left = insert(node->left, key, castleId);
     else if (key >= node->key)
-        node->right = insert(node->right, key);
+        node->right = insert(node->right, key, castleId);
     else // Equal keys are not allowed in BST
         return node;
 
@@ -122,8 +122,8 @@ Node* Avl::insert(Node* node, int key)
     return node;
 }
 
-void Avl::add(int key){
-    root = this->insert(root, key);
+void Avl::add(int key, int castleId){
+    root = this->insert(root, key, castleId);//EXTRA
     return;
 }
 
@@ -138,7 +138,7 @@ Node* Avl::minValueNode(Node* node)
     return current;
 }
 
-Node* Avl::deleteNode(Node* root, int key)
+Node* Avl::deleteNode(Node* root, int key, int castleId)
 {
 
     // STEP 1: PERFORM STANDARD BST DELETE
@@ -242,8 +242,8 @@ Node* Avl::deleteNode(Node* root, int key)
     return root;
 }
 
-void Avl::del(int key){
-    root = deleteNode(root, key);
+void Avl::del(int key, int castleId){
+    root = deleteNode(root, key, castleId);//EXTRA
     return;
 }
 
@@ -300,3 +300,23 @@ StackLL<int> Avl::reverseLevelOrder()
     return Helper;
 }
 
+
+void Avl::inOrder(Node *root)
+{
+    if (root == NULL)
+        return;
+
+    /* first recur on left child */
+    inOrder(root->left);
+
+    /* then print the data of node */
+    //cout << root->key << " ";
+    this->inVector.push_back(root);
+
+    /* now recur on right child */
+    inOrder(root->right);
+}
+
+void Avl::in(){
+    inOrder(this->root);
+}

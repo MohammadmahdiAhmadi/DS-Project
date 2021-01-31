@@ -12,6 +12,7 @@ using namespace std;
 #include "StackLL.h"
 #include "QueueLL.h"
 #include "Soldier.h"
+#include "Avl.h"
 
 class War
 {
@@ -33,6 +34,7 @@ class War
         void queuePreparation();
         void checkTime();
         void oneStepAttack(int i);
+        vector<Node*> findSuitableSoldier(queue<int> qu, vector<Node*> temp);
 };
 
 #endif // WAR_H

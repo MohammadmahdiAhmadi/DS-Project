@@ -93,3 +93,9 @@ void Castle::distributingSoldiers(int* listOfCastlesArmys, int** matris, int e){
 }
 
 
+vector<Node*> Castle::avlIn(){
+    this->armyTree.in();
+    return this->armyTree.inVector;
+}
+
+
