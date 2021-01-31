@@ -124,10 +124,15 @@ void War::oneStepAttack(int i){
         C[i]->attackerArmysIn.pop();
     }
 
-    //#TODO
-    //sort vector with new nodes
 
+    //sort vector with new nodes Based on Node.key
+    sort(temp.begin(), temp.end(), [](const Node* lhs, const Node* rhs) {
+      return lhs->key < rhs->key;
+        });
+
+    //#TODO
     //add all of vector nodes in avl tree (fibonacci soon)
+
 
     //delete extra nodes
 

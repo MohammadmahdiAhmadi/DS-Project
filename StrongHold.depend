@@ -54,9 +54,10 @@
 	"War.h"
 	"StackLL.h"
 
-1612053392 /media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/include/War.h
+1612112551 /media/mohammadmahdi/60502D7F502D5CD2/College/StrongHold/include/War.h
 	<iostream>
 	<cmath>
+	<algorithm>
 	"Graph.h"
 	"Castle.h"
 	"StackLL.h"

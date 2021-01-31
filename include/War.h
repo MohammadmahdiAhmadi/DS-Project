@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 #include <cmath>
+#include<algorithm>
 
 #define SA 2  //SpeedOfArmy
 
