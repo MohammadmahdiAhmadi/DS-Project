@@ -43,6 +43,8 @@ class Avl
         vector<Node*> inVector;
         StackLL<int> reverseLevelOrder();
 
+        Node* find(int key);
+
 
     private:
         Node* root;
@@ -59,6 +61,8 @@ class Avl
 
         void preOrder(Node *root);
         void inOrder(Node *root);
+
+        Node* recFind(Node* root, int key);
 
 
 };

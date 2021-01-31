@@ -123,6 +123,7 @@ void War::oneStepAttack(int i){
         Node* intToNode = new Node(C[i]->attackerArmysIn.front(), CastleId);
         temp.push_back(intToNode);
 
+        C[i]->attackerArmysIn.push( C[i]->attackerArmysIn.front());
         C[i]->attackerArmysIn.pop();
     }
 
@@ -139,7 +140,7 @@ void War::oneStepAttack(int i){
         Fibo->add(temp[j]->key, temp[j]->CastleId);
     }
 
-    //#TODO
+
     //delete extra nodes
     for(int j=0; j<temp.size(); j++){//traversal in all nodes of tree
         int flag = 1;
@@ -153,18 +154,51 @@ void War::oneStepAttack(int i){
         if(flag == 1)
             Fibo->del(temp[j]->key, temp[j]->CastleId);
     }
+    //destroying extra memory (temp, ...)
 
-    Fibo->pre();
-    cout << endl;
+
+    //#TODO
+    //winer or loser???
+    //Fibo height, v(vector<Node*>) ,C[i]->attackerArmysIn(queue<int>)
+
     /*
-    vector<Node*> inVector = Fibo->inVector;
-    for(int j=0; j<inVector.size(); j++){
-        cout << inVector[j]->key << " ";
+    for(int j=0; j<C[i]->attackerArmysIn.size(); j++){
+        cout << C[i]->attackerArmysIn.front() << " ";
+        C[i]->attackerArmysIn.pop();
     }
     cout << endl;
-    */
+    for(int j=0; j<v.size(); j++){
+        cout << v[j]->key << " ";
+    }
+    cout << endl;*/
 
-    //winer or loser???
+
+    int height = -1;
+    vector<int> winerCastleId;
+
+    for(int j=0; j<v.size(); j++){
+        height = Fibo->find(v[j]->key)->height;
+        winerCastleId.push_back(i);
+
+        if(Fibo->find( C[i]->attackerArmysIn.front() )->height > height){
+            height = Fibo->find( C[i]->attackerArmysIn.front() )->height;
+            winerCastleId[j] = this->CastleId;
+        }
+
+        else if(Fibo->find( C[i]->attackerArmysIn.front() )->height == height){
+            if(C[i]->attackerArmysIn.front() > v[j]->key){
+                winerCastleId[j] = this->CastleId;
+            }
+
+        }
+        C[i]->attackerArmysIn.pop();
+    }
+
+    for(int j=0; j<winerCastleId.size(); j++){
+        cout << winerCastleId[j] << " \n";
+    }
+
+
 
     //dead stack, avl again, ...
 

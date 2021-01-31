@@ -320,3 +320,26 @@ void Avl::inOrder(Node *root)
 void Avl::in(){
     inOrder(this->root);
 }
+
+Node* Avl::recFind(Node* root, int key){
+    // Base Cases: root is null or key is present at root
+    if (root == NULL || root->key == key)
+       return root;
+
+    // Key is greater than root's key
+    if (root->key < key)
+       return recFind(root->right, key);
+
+    // Key is smaller than root's key
+    return recFind(root->left, key);
+}
+
+Node* Avl::find(int key){
+    return this->recFind(this->root, key);
+}
+
+
+
+
+
+
