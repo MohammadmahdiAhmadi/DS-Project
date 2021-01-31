@@ -132,7 +132,16 @@ void War::oneStepAttack(int i){
 
     //#TODO
     //add all of vector nodes in avl tree (fibonacci soon)
-
+    Avl* Fibo = new Avl();
+    for(int j=0; j<temp.size(); j++){
+        Fibo->add(temp[j]->key, temp[j]->CastleId);
+    }
+    Fibo->in();
+    vector<Node*> inVector = Fibo->inVector;
+    for(int j=0; j<inVector.size(); j++){
+        cout << inVector[j]->CastleId << " ";
+    }
+    cout << endl;
 
     //delete extra nodes
 
