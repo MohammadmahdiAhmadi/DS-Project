@@ -117,7 +117,9 @@ void War::oneStepAttack(int i){
     }
     */
 
-    for(int j=0; j<IC; j++){//add attacker soldier to vector (with them castleId)
+
+    //add attacker soldier to vector (with them castleId)
+    for(int j=0; j<IC; j++){
         Node* intToNode = new Node(C[i]->attackerArmysIn.front(), CastleId);
         temp.push_back(intToNode);
 
@@ -130,20 +132,37 @@ void War::oneStepAttack(int i){
       return lhs->key < rhs->key;
         });
 
-    //#TODO
+
     //add all of vector nodes in avl tree (fibonacci soon)
     Avl* Fibo = new Avl();
     for(int j=0; j<temp.size(); j++){
         Fibo->add(temp[j]->key, temp[j]->CastleId);
     }
-    Fibo->in();
+
+    //#TODO
+    //delete extra nodes
+    for(int j=0; j<temp.size(); j++){//traversal in all nodes of tree
+        int flag = 1;
+        for(int k=0; k<v.size(); k++){//traversal in all nodes that they want defence
+            if(temp[j] == v[k] || temp[j]->CastleId == this->CastleId ){
+                flag = 0;
+                break;
+            }
+        }
+
+        if(flag == 1)
+            Fibo->del(temp[j]->key, temp[j]->CastleId);
+    }
+
+    Fibo->pre();
+    cout << endl;
+    /*
     vector<Node*> inVector = Fibo->inVector;
     for(int j=0; j<inVector.size(); j++){
-        cout << inVector[j]->CastleId << " ";
+        cout << inVector[j]->key << " ";
     }
     cout << endl;
-
-    //delete extra nodes
+    */
 
     //winer or loser???
 

@@ -148,13 +148,13 @@ Node* Avl::deleteNode(Node* root, int key, int castleId)
     // If the key to be deleted is smaller
     // than the root's key, then it lies
     // in left subtree
-    if ( key < root->key )
+    if ( key < root->key)
         root->left = deleteNode(root->left, key);
 
     // If the key to be deleted is greater
     // than the root's key, then it lies
     // in right subtree
-    else if( key > root->key )
+    else if( key > root->key)
         root->right = deleteNode(root->right, key);
 
     // if key is same as root's key, then
