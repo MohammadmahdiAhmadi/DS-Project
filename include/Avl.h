@@ -44,6 +44,11 @@ class Avl
         StackLL<int> reverseLevelOrder();
 
         Node* find(int key);
+        bool empty(){
+            if(this->root == NULL)
+                return true;
+            return false;
+        }
 
 
     private:

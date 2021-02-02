@@ -46,6 +46,7 @@ void StartGame::setGraph(){
     G->addEdge(3,4,2);
     G->printGraph();
 
+
     return;
 }
 

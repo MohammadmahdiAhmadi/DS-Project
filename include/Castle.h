@@ -26,18 +26,17 @@ class Castle
         vector<Node*> avlIn();
 
         queue<int> attackerArmysIn;
-
+        vector<int> conqueredCastles;
+        int conqueredBy;
 
         Avl armyTree;
         stack<int> deadStack;
+
     private:
         int id;
         int armySize;
 
         int* distributingSoldiersList;
-
-        vector<int> conqueredCastles;
-        int conqueredBy;
 
 };
 

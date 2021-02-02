@@ -73,7 +73,9 @@ void War::checkTime(){
                 if(distances[i] > 0){//to check distance
                     distances[i] -= SA;
                 }
-                else{
+                else if( !Q[i].empty() && !C[i]->attackerArmysIn.empty() || C[i]->conqueredBy == this->CastleId){
+                //attacker armys queue and attackerArmysIn queue are empty? so we lose
+
                     oneStepAttack(i);
 
                     while(C[CastleId]->deadStack.empty() == false){//return dead stack armys
@@ -81,11 +83,14 @@ void War::checkTime(){
                         C[CastleId]->deadStack.pop();
                     }
 
+                    if( C[i]->armyTree.empty() ){//defencer avl is empty? so we win
+                        C[i]->conqueredBy = this->CastleId;
+                        C[CastleId]->conqueredCastles.push_back(i);
+                    }
                 }
+
             }
         }
-
-
 
         Time ++;
     }
