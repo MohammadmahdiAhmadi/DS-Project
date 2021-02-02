@@ -37,6 +37,7 @@ void StartGame::setGraph(){
 
     //Now we should get Edges from user
     //(i, j, distance)
+
     G->addEdge(0,1,5);
     G->addEdge(0,4,6);
     G->addEdge(1,2,3);
@@ -46,6 +47,18 @@ void StartGame::setGraph(){
     G->addEdge(3,4,2);
     G->printGraph();
 
+
+    /*
+    cout << "Enter castles graph (i j distance):\n";
+    int i, j, distance;
+    do{
+        cin >> i;
+        cin >> j;
+        cin >> distance;
+        G->addEdge(i, j, distance);
+    }
+    while(i != -1);
+    */
 
     return;
 }
