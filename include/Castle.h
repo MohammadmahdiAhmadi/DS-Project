@@ -28,10 +28,12 @@ class Castle
         queue<int> attackerArmysIn;
 
 
+        Avl armyTree;
+        stack<int> deadStack;
     private:
         int id;
         int armySize;
-        Avl armyTree;
+
         int* distributingSoldiersList;
 
         vector<int> conqueredCastles;

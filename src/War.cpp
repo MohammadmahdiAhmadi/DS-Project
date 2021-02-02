@@ -157,24 +157,12 @@ void War::oneStepAttack(int i){
     //destroying extra memory (temp, ...)
 
 
-    //#TODO
     //winer or loser???
     //Fibo height, v(vector<Node*>) ,C[i]->attackerArmysIn(queue<int>)
 
-    /*
-    for(int j=0; j<C[i]->attackerArmysIn.size(); j++){
-        cout << C[i]->attackerArmysIn.front() << " ";
-        C[i]->attackerArmysIn.pop();
-    }
-    cout << endl;
-    for(int j=0; j<v.size(); j++){
-        cout << v[j]->key << " ";
-    }
-    cout << endl;*/
-
-
     int height = -1;
     vector<int> winerCastleId;
+    vector<int> attackerArmysInBACKUP;
 
     for(int j=0; j<v.size(); j++){
         height = Fibo->find(v[j]->key)->height;
@@ -191,16 +179,24 @@ void War::oneStepAttack(int i){
             }
 
         }
+        attackerArmysInBACKUP.push_back(C[i]->attackerArmysIn.front());
         C[i]->attackerArmysIn.pop();
     }
 
-    for(int j=0; j<winerCastleId.size(); j++){
-        cout << winerCastleId[j] << " \n";
-    }
-
-
 
     //dead stack, avl again, ...
+    for(int j=0; j<winerCastleId.size(); j++){
+        if(winerCastleId[j] == i){//defencer soldier win
+            C[CastleId]->deadStack.push(attackerArmysInBACKUP[j]);//dead stack...
+
+        }
+        else if(winerCastleId[j] == this->CastleId){//attacker soldier win
+            C[i]->armyTree.del(v[j]->key);//delete defencer sodier from tree
+            C[i]->attackerArmysIn.push(attackerArmysInBACKUP[j]);//push again attacker soldier in queue
+
+        }
+    }
+    cout << C[CastleId]->deadStack.top() << endl;
 
 
 
