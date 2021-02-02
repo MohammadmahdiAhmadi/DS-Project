@@ -67,6 +67,7 @@ void War::checkTime(){
         if(check != 1)
             break;
 
+
         for(int i=0; i<E; i++){
             if(G->getMatris()[CastleId][i] != 0){//just neighbors
                 if(distances[i] > 0){//to check distance
@@ -74,6 +75,12 @@ void War::checkTime(){
                 }
                 else{
                     oneStepAttack(i);
+
+                    while(C[CastleId]->deadStack.empty() == false){//return dead stack armys
+                        Q[i].push(C[CastleId]->deadStack.top());
+                        C[CastleId]->deadStack.pop();
+                    }
+
                 }
             }
         }
@@ -196,8 +203,6 @@ void War::oneStepAttack(int i){
 
         }
     }
-    cout << C[CastleId]->deadStack.top() << endl;
-
 
 
 }
