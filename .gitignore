@@ -1,0 +1,15 @@
+# Binaries
+bin/
+
+# Object files
+obj/
+
+# IDE-specific files
+StrongHold.depend
+StrongHold.layout
+StrongHold.cbp
+
+# Temporary files
+*.log
+*.tmp
+*~
